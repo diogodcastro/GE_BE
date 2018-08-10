@@ -1,11 +1,11 @@
 package com.dc.entity;
 
 public enum States {
-	AVAILABLE,
-	USE,
-	REPAIR,
-	SLAUGHTER,
-	INSPECTION_BASKET,
-	FIXED_USAGE,
-	NOT_FOUND
+	Disponível,
+	Utilização,
+	Reparação,
+	Abater,
+	Cesta_Inspeção,
+	Uxo_Fixo,
+	Não_Encontrado
 }
