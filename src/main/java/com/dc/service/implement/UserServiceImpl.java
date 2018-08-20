@@ -14,8 +14,8 @@ public class UserServiceImpl implements UserService {
 	@Autowired 
 	private UserRepository repo;
 
-	public Users findByUserName(String userName) {
-		return repo.findByUserName(userName);
+	public Users findByUsername(String username) {
+		return repo.findByUsername(username);
 	}
 
 	public Iterable<Users> findAll() {

@@ -8,6 +8,6 @@ public interface UserRepository extends CrudRepository<Users, Long>{
 	
 	public Iterable<Users> findAll();
 	
-	public Users findByUserName(String userName);
+	public Users findByUsername(String username);
 
 }

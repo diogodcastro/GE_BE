@@ -1,14 +1,23 @@
 package com.dc.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
+@Table(name= "Users")
 public class Users {
 	
 	@Id
-	public String userName;
+	@GeneratedValue(strategy=GenerationType.IDENTITY) 
+	public long id;
+	
+	@NotNull
+	public String username;
 	
 	public String password;
 	
@@ -42,9 +51,7 @@ public class Users {
 	public void setApelido(String apelido) {
 		this.apelido = apelido;
 	}
-	public String getUserName() {
-		return userName;
-	}
+
 	public boolean isLevantarDepositar() {
 		return levantarDepositar;
 	}
@@ -72,10 +79,6 @@ public class Users {
 	public boolean isGerirEquipamentos() {
 		return gerirEquipamentos;
 	}
-	
-		public void setUserName(String userName) {
-		this.userName = userName;
-	}
 	public void setGerirEquipamentos(boolean gerirEquipamentos) {
 		this.gerirEquipamentos = gerirEquipamentos;
 	}
@@ -84,6 +87,18 @@ public class Users {
 	}
 	public void setGerirUtilizadores(boolean gerirUtilizadores) {
 		this.gerirUtilizadores = gerirUtilizadores;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	

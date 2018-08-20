@@ -4,7 +4,7 @@ import com.dc.entity.Users;
 
 public interface UserService {
 	
-	Users findByUserName(String userName);
+	Users findByUsername(String username);
 
 	Iterable<Users> findAll();
 

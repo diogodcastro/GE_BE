@@ -15,9 +15,9 @@ public class InspectorServiceImpl implements InspectorService {
 	private InspectorRepository repo;
 	
 	
-	public Inspector findByUser(String userName){
+	public Inspector findByUser(String username){
 		Users us = new Users();
-		us.setUserName(userName);
+		us.setUsername(username);
 		return repo.findByUsers(us);
 	}
 
