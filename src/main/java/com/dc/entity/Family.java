@@ -4,7 +4,7 @@ public enum Family {
 	Gases,
 	Elétrico,
 	Hidráulico,
-	Epi_Epc,
+	EPI_EPC,
 	Ferramentas_AT,
 	Pneumatico,
 	Máquina_Ferramenta,
