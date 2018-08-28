@@ -6,7 +6,7 @@ public enum Family {
 	Hidráulico,
 	EPI_EPC,
 	Ferramentas_AT,
-	Pneumatico,
+	Pneumático,
 	Máquina_Ferramenta,
 	Escadas_Escadotes,
 	Elevação
