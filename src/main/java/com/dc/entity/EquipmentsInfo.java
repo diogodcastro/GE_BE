@@ -16,7 +16,7 @@ public class EquipmentsInfo {
 	
 	@Enumerated(EnumType.STRING)
 	public Family familia;
-	
+
 	public String equipamento;
 	
 	public int periodicidade;
@@ -62,6 +62,8 @@ public class EquipmentsInfo {
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
 	}
+
+	
 	
 	
 	

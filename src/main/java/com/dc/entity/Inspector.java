@@ -14,11 +14,11 @@ import javax.persistence.Table;
 public class Inspector {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public long id;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="id")
+	@OneToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "id_user")
 	public Users users;
 
 	public boolean eletrico;

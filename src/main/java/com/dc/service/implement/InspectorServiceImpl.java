@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dc.entity.Inspector;
-import com.dc.entity.Users;
 import com.dc.repository.InspectorRepository;
 import com.dc.service.InspectorService;
 
@@ -16,10 +15,9 @@ public class InspectorServiceImpl implements InspectorService {
 	
 	
 	public Inspector findByUser(String username){
-		Users us = new Users();
-		us.setUsername(username);
-		return repo.findByUsers(us);
+		return repo.findByUsers_username(username);
 	}
+	
 
 
 	public Iterable<Inspector> findAll() {

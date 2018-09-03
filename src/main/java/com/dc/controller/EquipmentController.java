@@ -33,10 +33,21 @@ public class EquipmentController {
 		return new ResponseEntity<Equipment>(equipment, HttpStatus.OK);
 	}
 	
+	@GetMapping("/ativo/{ativo}")
+	public ResponseEntity<Iterable<Equipment>> getEquipmentByAtivo(@PathVariable("ativo") boolean ativo) { 
+		return new ResponseEntity<Iterable<Equipment>>(equipService.findByAtivo(ativo), HttpStatus.OK);
+	}
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Equipment> createEquipment(@RequestBody Equipment equipment) {
 		equipService.save(equipment);
 		return new ResponseEntity<Equipment>(equipment, HttpStatus.OK);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST,value="/inspect")
+	public ResponseEntity<Iterable<Equipment>> doInspect(@RequestBody Iterable<Equipment> equipments) {
+		equipService.doInspection(equipments);
+		return new ResponseEntity<Iterable<Equipment>>(equipments, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)

@@ -2,10 +2,15 @@ package com.dc.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.dc.util.DateOperationsUtil;
 
 @Entity
 public class Equipment {
@@ -16,9 +21,11 @@ public class Equipment {
 	public String localizacao;
 	
 	@Enumerated(EnumType.STRING)
-	public Family familia;
 	
-	public String equipamento;
+	@ManyToOne(cascade=CascadeType.DETACH)
+	@JoinColumn(name="id_info")
+	public EquipmentsInfo info;
+	
 	public String caracteristicas;
 	public String marca; 
 	public String modelo;
@@ -35,25 +42,16 @@ public class Equipment {
 	public Date dataValidade;
 	public String nrPo;
 	public String fornecedor;
+	
 	public boolean ativo;
+	
 	public String getLocalizacao() {
 		return localizacao;
 	}
 	public void setLocalizacao(String localizacao) {
 		this.localizacao = localizacao;
 	}
-	public Family getFamilia() {
-		return familia;
-	}
-	public void setFamilia(Family familia) {
-		this.familia = familia;
-	}
-	public String getEquipamento() {
-		return equipamento;
-	}
-	public void setEquipamento(String equipamento) {
-		this.equipamento = equipamento;
-	}
+
 	public String getCaracteristicas() {
 		return caracteristicas;
 	}
@@ -141,4 +139,24 @@ public class Equipment {
 	public String getCodigo() {
 		return codigo;
 	}
+	public EquipmentsInfo getInfo() {
+		return info;
+	}
+	public void setInfo(EquipmentsInfo info) {
+		this.info = info;
+	}
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+	
+	
+	public boolean updateInspecao() {
+		if(this.proximaInspecao != null) {
+			this.proximaInspecao = DateOperationsUtil.addMonth(this.info.getPeriodicidade(),this.proximaInspecao);
+			this.ultimaInspecao = new Date();
+			return true;
+		}
+		return false;
+	}
+	
 }

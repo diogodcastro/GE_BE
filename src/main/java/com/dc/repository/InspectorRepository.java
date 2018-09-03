@@ -10,5 +10,7 @@ public interface InspectorRepository extends CrudRepository<Inspector, Long>{
 	public Iterable<Inspector> findAll();
 	
 	public Inspector findByUsers(Users user);
+	
+	public Inspector findByUsers_username(String username);
 
 }

@@ -1,5 +1,7 @@
 package com.dc.service.implement;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,24 @@ public class EquipmentServiceImpl implements EquipmentService {
 
 	public void save(Equipment equipment) {
 		equipRepo.save(equipment);	
+	}
+
+	@Override
+	public Iterable<Equipment> findByAtivo(boolean ativo) {
+		return equipRepo.findByAtivo(ativo);
+	}
+	
+	public void doInspection(Iterable<Equipment>  equipments) {
+		equipments.forEach(e ->{
+			e = equipRepo.findByCodigo(e.getCodigo());
+			equipRepo.save(e);
+		 });
+	
+	}
+
+	@Override
+	public Iterable<Equipment> findByProximaInspecaoLessThan(Date date) {
+		return equipRepo.findByProximaInspecaoLessThanAndInspecaoValidaTrue(date);
 	}
 
 }
