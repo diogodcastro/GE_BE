@@ -9,4 +9,7 @@ spring:
     password: 20.18!dC
     platform: mssql
   jpa:
-    show-sql: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create-update
+    
